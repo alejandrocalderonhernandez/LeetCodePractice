@@ -1,4 +1,4 @@
-package com.alejandro;
+package com.alejandro.letcode;
 
 public class BestTimeToBuyAndSellStock {
 

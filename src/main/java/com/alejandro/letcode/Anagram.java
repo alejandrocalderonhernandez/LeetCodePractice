@@ -1,4 +1,4 @@
-package com.alejandro;
+package com.alejandro.letcode;
 
 import java.util.HashMap;
 import java.util.Map;

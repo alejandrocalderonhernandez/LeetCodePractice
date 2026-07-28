@@ -1,7 +1,5 @@
-package com.alejandro;
+package com.alejandro.letcode;
 
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.Locale;
 
 public class ValidPalindrome {

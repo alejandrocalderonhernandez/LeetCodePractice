@@ -1,4 +1,4 @@
-package com.alejandro;
+package com.alejandro.other;
 
 public class SecondGreater {
 
