@@ -5,25 +5,22 @@ import java.util.Arrays;
 public class MoveZeroes {
 
     public static void moveZeroes(int[] nums) {
-
-
         int freeSpace = 0;
-        int countZero = 0;
 
-        for (int i = 0; i < nums.length; i++) {
+        for ( int i = 0; i < nums.length; i ++) {
 
             if (nums[i] != 0) {
                 nums[freeSpace] = nums[i];
                 freeSpace ++;
-
-            } else {
-                countZero ++;
             }
         }
 
-        for (int i = nums.length - 1 ; i > nums.length - countZero - 1; i-- ) {
-            nums[i] = 0;
+
+        while (freeSpace < nums.length) {
+            nums[freeSpace] = 0;
+            freeSpace ++;
         }
+
     }
 
     public static void main(String[] args) {

@@ -1,31 +1,23 @@
 package com.alejandro.other;
 
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class SecondGreater {
 
     public static int findSecondGreater(int[] nums) {
 
-        if(nums.length <= 1) {
-            return -1;
-        }
+        return Arrays.stream(nums)
+                .distinct()
+                .boxed()
+                .sorted(Comparator.reverseOrder())
+                .skip(1)
+                .findFirst()
+                .orElse(-1);
 
-        int greater = Math.max(nums[0], nums[1]);
-        int secondGreater =  Math.min(nums[0], nums[1]);
-
-        for (int i = 2; i < nums.length; i++) {
-
-            if (nums[i] > secondGreater) {
-
-                if (nums[i] != greater) {
-                    secondGreater = Math.min(nums[i], greater);
-                    greater = Math.max(nums[i], greater);
-                }
-
-            }
-
-        }
-
-        return secondGreater;
     }
+
+
 
     public static void main(String[] args) {
 
