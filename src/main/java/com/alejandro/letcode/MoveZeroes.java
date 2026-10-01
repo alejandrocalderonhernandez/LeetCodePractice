@@ -7,20 +7,18 @@ public class MoveZeroes {
     public static void moveZeroes(int[] nums) {
         int freeSpace = 0;
 
-        for ( int i = 0; i < nums.length; i ++) {
+        for (int i = 0; i < nums.length; i++) {
+            nums[freeSpace] = nums[i];
 
             if (nums[i] != 0) {
-                nums[freeSpace] = nums[i];
                 freeSpace ++;
             }
+
         }
 
-
-        while (freeSpace < nums.length) {
-            nums[freeSpace] = 0;
-            freeSpace ++;
+        for (int i = freeSpace; i < nums.length; i++) {
+            nums[i] = 0;
         }
-
     }
 
     public static void main(String[] args) {

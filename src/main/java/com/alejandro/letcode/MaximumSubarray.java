@@ -3,15 +3,21 @@ package com.alejandro.letcode;
 public class MaximumSubarray {
 
     public static int maxSubArray(int[] nums) {
-        int maxSumAccumulated = nums[0];
-        int maxSum = nums[0];
 
-        for (int i = 1; i < nums.length; i++) {
-            maxSum = Math.max(maxSum + nums[i], nums[i]);
-            maxSumAccumulated = Math.max(maxSum, maxSumAccumulated);
+        if (nums == null) {
+            return 0;
         }
 
-        return maxSumAccumulated;
+        int maxSum = nums[0];
+        int partialMaxSum = 0;
+
+        for (Integer num: nums) {
+            partialMaxSum = Math.max(partialMaxSum + num, num);
+            maxSum = Math.max(partialMaxSum, maxSum);
+        }
+
+        return maxSum;
+
     }
 
     public static void main(String[] args) {

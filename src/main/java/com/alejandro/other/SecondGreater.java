@@ -6,23 +6,32 @@ import java.util.Comparator;
 public class SecondGreater {
 
     public static int findSecondGreater(int[] nums) {
+        return Arrays.stream(nums)
+                .distinct()
+                .boxed()
+                .sorted(Comparator.reverseOrder())  // Invoca el método, retorna un Comparator
+                .skip(1)
+                .findFirst()
+                .orElse(-1);
+    }
+
+    public static int findSecondGreater(int[] nums, int k) {
 
         return Arrays.stream(nums)
                 .distinct()
                 .boxed()
                 .sorted(Comparator.reverseOrder())
-                .skip(1)
+                .skip(k - 1)
                 .findFirst()
                 .orElse(-1);
-
     }
 
 
 
     public static void main(String[] args) {
 
-        int[] nums1 = {10, 5, 8};
-        System.out.println(findSecondGreater(nums1)); // 8
+        int[] nums1 = {10, 5, 8, 4};
+        System.out.println(findSecondGreater(nums1, 3)); // 8
 
         int[] nums2 = {1, 2, 3, 4, 9, 7, 8, 0, 10};
         System.out.println(findSecondGreater(nums2)); // 9
